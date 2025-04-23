@@ -1,14 +1,22 @@
-''' Test module for the arithmetic commands and REPL functionality of the class App.  '''
+""" 
+Test module for the arithmetic commands and REPL functionality of the class App. 
+This module will have the unit tests that will validate the behavior of different mathematical operations 
+(Add, Subtract, Multiply, Divide) in the command system of the App class, as well as the REPL interface. 
+The tests will be simulating user input to ensure commands will work as expected and will verify that the
+application will handle input/output correctly, including edge cases like division by zero.
+"""
 import pytest
 from app import App
-from app.commands.add import AddCommand
-from app.commands.subtract import SubtractCommand
-from app.commands.multiply import MultiplyCommand
-from app.commands.divide import DivideCommand
+from app.plugins.add import AddCommand
+from app.plugins.subtract import SubtractCommand
+from app.plugins.multiply import MultiplyCommand
+from app.plugins.divide import DivideCommand
 
 
 def test_add_command(capfd, monkeypatch):
-    '''  Test the AddCommand's functionality. '''
+    """
+    Test the AddCommand's functionality.
+    """
     monkeypatch.setattr('builtins.input', lambda _: '5 3')
     command = AddCommand()
     command.execute()
@@ -16,7 +24,9 @@ def test_add_command(capfd, monkeypatch):
     assert "Additon result: 8" in out, "The AddCommand should print the correct addition result."
 
 def test_subtract_command(capfd, monkeypatch):
-    ''' Test the SubtractCommand's functionality. '''
+    """
+    Test the SubtractCommand's functionality.
+    """
     monkeypatch.setattr('builtins.input', lambda _: '5 3')
     command = SubtractCommand()
     command.execute()
@@ -24,7 +34,9 @@ def test_subtract_command(capfd, monkeypatch):
     assert "Subtraction result: 2" in out, "The SubtractCommand should print the correct subtraction result."
 
 def test_multiply_command(capfd, monkeypatch):
-    ''' Test the MultiplyCommand's functionality. '''
+    """
+    Test the MultiplyCommand's functionality.
+    """
     monkeypatch.setattr('builtins.input', lambda _: '5 3')
     command = MultiplyCommand()
     command.execute()
@@ -32,7 +44,9 @@ def test_multiply_command(capfd, monkeypatch):
     assert "Multiplication result: 15" in out, "The MultiplyCommand should print the correct multiplication result."
 
 def test_divide_command(capfd, monkeypatch):
-    ''' Test the DivideCommand's functionality. '''
+    """
+    Test the DivideCommand's functionality.
+    """
     monkeypatch.setattr('builtins.input', lambda _: '9 3')
     command = DivideCommand()
     command.execute()
@@ -40,7 +54,9 @@ def test_divide_command(capfd, monkeypatch):
     assert "Division result: 3" in out, "The DivideCommand should print the correct division result."
 
 def test_dividebyzero_command(capfd, monkeypatch):
-    '''  This test simulates user input ('9 0') and verifies that an appropriate error message '''
+    """
+    This test simulates user input ('9 0') and verifies that an appropriate error message
+    """
     monkeypatch.setattr('builtins.input', lambda _: '9 0')
     command = DivideCommand()
     command.execute()
@@ -48,13 +64,12 @@ def test_dividebyzero_command(capfd, monkeypatch):
     assert "Error Occured! DivisionByzero or DivisionByNegative" in out, "Error should be Occured."
 
 def test_app_menu_command(capfd, monkeypatch):
-    """Test that the REPL correctly handles the 'menu' command."""
-    # Simulate user entering 'menu' followed by 'exit'
+    """
+    Test that the REPL correctly handles the 'menu' command and exits cleanly.
+    """
     inputs = iter(['menu', 'exit'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-
     app = App()
     with pytest.raises(SystemExit) as e:
         app.start()  # Assuming App.start() is now a static method based on previous discussions
-
     assert str(e.value) == "Exiting...", "The app did not exit as expected"
