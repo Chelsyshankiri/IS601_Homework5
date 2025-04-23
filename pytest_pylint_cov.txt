@@ -5,29 +5,30 @@ rootdir: /home/samuel/IS601_Again/Homework5/calc_design_patterns
 configfile: pytest.ini
 testpaths: tests
 plugins: Faker-23.1.0, pylint-0.21.0, cov-4.1.0
-collecting ... collected 12 items
+collecting ... collected 14 items
 --------------------------------------------------------------------------------
 Linting files
 .....
 --------------------------------------------------------------------------------
 
-tests/__init__.py::PYLINT SKIPPED (file(s) previously passed pylint ...) [  8%]
-tests/conftest.py::PYLINT SKIPPED (file(s) previously passed pylint ...) [ 16%]
-tests/test_app.py::PYLINT SKIPPED (file(s) previously passed pylint ...) [ 25%]
-tests/test_app.py::test_app_start_exit_command PASSED                    [ 33%]
-tests/test_app.py::test_app_start_unknown_command PASSED                 [ 41%]
+tests/__init__.py::PYLINT SKIPPED (file(s) previously passed pylint ...) [  7%]
+tests/conftest.py::PYLINT SKIPPED (file(s) previously passed pylint ...) [ 14%]
+tests/test_app.py::PYLINT SKIPPED (file(s) previously passed pylint ...) [ 21%]
+tests/test_app.py::test_app_get_environment_variable PASSED              [ 28%]
+tests/test_app.py::test_app_start_exit_command PASSED                    [ 35%]
+tests/test_app.py::test_app_start_unknown_command PASSED                 [ 42%]
 tests/test_commands.py::PYLINT SKIPPED (file(s) previously passed py...) [ 50%]
-tests/test_commands.py::test_add_command PASSED                          [ 58%]
-tests/test_commands.py::test_subtract_command PASSED                     [ 66%]
-tests/test_commands.py::test_multiply_command PASSED                     [ 75%]
-tests/test_commands.py::test_divide_command PASSED                       [ 83%]
-tests/test_commands.py::test_dividebyzero_command PASSED                 [ 91%]
-tests/test_commands.py::test_app_menu_command PASSED                     [100%]
+tests/test_commands.py::test_add_command PASSED                          [ 57%]
+tests/test_commands.py::test_subtract_command PASSED                     [ 64%]
+tests/test_commands.py::test_multiply_command PASSED                     [ 71%]
+tests/test_commands.py::test_divide_command PASSED                       [ 78%]
+tests/test_commands.py::test_dividebyzero_command PASSED                 [ 85%]
+tests/test_commands.py::test_app_menu_command PASSED                     [ 92%]
+tests/test_commands.py::test_exit_command PASSED                         [100%]
 
 ---------- coverage: platform linux, python 3.12.3-final-0 -----------
 Name                               Stmts   Miss  Cover
 ------------------------------------------------------
-app/__init__.py                       25      0   100%
 app/commands/__init__.py              13      0   100%
 app/plugins/__init__.py                0      0   100%
 app/plugins/add/__init__.py            7      0   100%
@@ -36,10 +37,10 @@ app/plugins/exit/__init__.py           5      0   100%
 app/plugins/menu/__init__.py           5      0   100%
 app/plugins/multiply/__init__.py       7      0   100%
 app/plugins/subtract/__init__.py       7      0   100%
-tests/test_app.py                     17      0   100%
-tests/test_commands.py                43      0   100%
+tests/test_app.py                     21      0   100%
+tests/test_commands.py                55      0   100%
 ------------------------------------------------------
-TOTAL                                139      0   100%
+TOTAL                                130      0   100%
 
 
-========================= 8 passed, 4 skipped in 0.57s =========================
+======================== 10 passed, 4 skipped in 0.61s =========================
