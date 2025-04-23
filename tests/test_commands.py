@@ -1,3 +1,4 @@
+''' Test module for the arithmetic commands and REPL functionality of the class App.  '''
 import pytest
 from app import App
 from app.commands.add import AddCommand
@@ -7,6 +8,7 @@ from app.commands.divide import DivideCommand
 
 
 def test_add_command(capfd, monkeypatch):
+    '''  Test the AddCommand's functionality. '''
     monkeypatch.setattr('builtins.input', lambda _: '5 3')
     command = AddCommand()
     command.execute()
@@ -14,6 +16,7 @@ def test_add_command(capfd, monkeypatch):
     assert "Additon result: 8" in out, "The AddCommand should print the correct addition result."
 
 def test_subtract_command(capfd, monkeypatch):
+    ''' Test the SubtractCommand's functionality. '''
     monkeypatch.setattr('builtins.input', lambda _: '5 3')
     command = SubtractCommand()
     command.execute()
@@ -21,6 +24,7 @@ def test_subtract_command(capfd, monkeypatch):
     assert "Subtraction result: 2" in out, "The SubtractCommand should print the correct subtraction result."
 
 def test_multiply_command(capfd, monkeypatch):
+    ''' Test the MultiplyCommand's functionality. '''
     monkeypatch.setattr('builtins.input', lambda _: '5 3')
     command = MultiplyCommand()
     command.execute()
@@ -28,6 +32,7 @@ def test_multiply_command(capfd, monkeypatch):
     assert "Multiplication result: 15" in out, "The MultiplyCommand should print the correct multiplication result."
 
 def test_divide_command(capfd, monkeypatch):
+    ''' Test the DivideCommand's functionality. '''
     monkeypatch.setattr('builtins.input', lambda _: '9 3')
     command = DivideCommand()
     command.execute()
@@ -35,6 +40,7 @@ def test_divide_command(capfd, monkeypatch):
     assert "Division result: 3" in out, "The DivideCommand should print the correct division result."
 
 def test_dividebyzero_command(capfd, monkeypatch):
+    '''  This test simulates user input ('9 0') and verifies that an appropriate error message '''
     monkeypatch.setattr('builtins.input', lambda _: '9 0')
     command = DivideCommand()
     command.execute()
@@ -50,5 +56,5 @@ def test_app_menu_command(capfd, monkeypatch):
     app = App()
     with pytest.raises(SystemExit) as e:
         app.start()  # Assuming App.start() is now a static method based on previous discussions
-    
+
     assert str(e.value) == "Exiting...", "The app did not exit as expected"
