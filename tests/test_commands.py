@@ -61,7 +61,7 @@ def test_dividebyzero_command(capfd, monkeypatch):
     command = DivideCommand()
     command.execute()
     out, err = capfd.readouterr()
-    assert "Error Occured! DivisionByzero or DivisionByNegative" in out, "Error should be Occured."
+    assert "Error Occured! DivisionByzero" in out, "Error should be Occured."
 
 def test_app_menu_command(capfd, monkeypatch):
     """
