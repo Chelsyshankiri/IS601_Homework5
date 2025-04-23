@@ -11,6 +11,7 @@ from app.plugins.add import AddCommand
 from app.plugins.subtract import SubtractCommand
 from app.plugins.multiply import MultiplyCommand
 from app.plugins.divide import DivideCommand
+from app.plugins.exit import ExitCommand
 
 
 def test_add_command(capfd, monkeypatch):
@@ -79,3 +80,13 @@ def test_app_menu_command(capfd, monkeypatch):
     assert "Subtract" in out
     assert "Multiply" in out
     assert "Divide" in out
+
+def test_exit_command():
+    """
+    Test that ExitCommand raises SystemExit with the correct message.
+    """
+    command = ExitCommand()
+    with pytest.raises(SystemExit) as e:
+        command.execute()
+
+    assert str(e.value) == "Exiting...", "Expected SystemExit with message 'Exiting...'"
