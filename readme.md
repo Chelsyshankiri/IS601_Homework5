@@ -1,74 +1,69 @@
-# Project: Command Pattern and Plugins Homework 5
+# Homework5 - Command System
 
-## Introduction
+This repository contains a Python project that implements a plugin-based command system for handling user inputs and performing various operations. The goal of this project is to demonstrate the use of classes, functions, and plugins to handle multiple commands dynamically.
 
-This project focuses on the development of an interactive command-line application that operates continuously, transitioning from a single-execution script to a fully functional application. Through this assignment, you will explore the command pattern, learn how to dynamically load commands using a simple plugin architecture, and understand the appropriate use of exceptions versus conditional statements to manage invalid data inputs. This unit lays the foundational skills for application development, preparing you for the midterm project, which requires a thorough explanation of your program's architecture, design patterns, and functionality.
+## Branch: `commands`
 
-## Project Enhancements from Assignment 4
+This branch includes the implementation of the command system where different commands can be executed based on user input.
 
-Incorporate the functionalities discussed in the lecture videos to your previous assignment. This includes transforming your calculator program into an interactive application using the command pattern and REPL (Read, Evaluate, Print, Loop) principles.
+## Features
 
-### Submission Requirements
+- **AddCommand**: Adds two numbers provided by the user.
+- **Command Plugin System**: Dynamically load and execute commands.
+- **Extensibility**: Easy to add new commands by extending the existing plugin system.
 
-1. **Initial Setup:**
-   - Watch the lecture on the main/command branch, which covers REPL and the command pattern. [Instructor Video: Command Pattern Lecture](https://youtu.be/3DVUN091T5g). Integrate these concepts with your existing program to add four basic commands: add, subtract, multiply, and divide, making your calculator interactive.
+## Files
 
-2. **(Bonus) Implement a Menu Command:**
-   - Create a menu command that displays available commands from the command dictionary at the application's start and when the user types "menu." This is a self-guided challenge to deepen your understanding of dynamic command integration.
+- **`main.py`**: The main entry point of the application where commands are processed.
+- **`commands/`**: Contains the individual command classes that handle specific operations (e.g., AddCommand).
+- **`test_main.py`**: Contains unit tests for the command system to ensure correctness.
 
-3. **Testing and Code Coverage:**
-   - With the calculator commands integrated, update and expand your tests to achieve 100% test coverage, ensuring your program's functionality is fully verified.
+## How to Run
 
-4. **Plugin Architecture:**
-   - View the lecture on implementing plugins [Instructor Video: Plugins Lecture](https://youtu.be/c2PmjazGW2w). Learn to refactor your program to automatically load plugins, facilitating easy command additions without manual updates.
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/Chelsyshankiri/IS601_Homework5.git
+    ```
 
-5. **(Bonus) Explore Multiprocessing Capabilities:**
-   - Investigate adding multiprocessing features to enable commands/plugins to run on separate cores. This enhancement is a forward-looking feature that prepares your application for future scalability and performance improvements.
+2. **Navigate to the project directory:**
+    ```bash
+    cd Homework5
+    ```
 
-## Grading Rubric (Total: 100 Points)
+3. **Switch to the `commands` branch:**
+    ```bash
+    git checkout commands
+    ```
 
-- **Testing (50 Points):**
-  - Comprehensive test coverage near 100% average coverage: 50 Points
+4. **Run the main Python file:**
+    ```bash
+    python main.py
+    ```
 
-- **Functionality (50 Points):**
-  - Implementation of command pattern and REPL: 10 Points
-  - Interactive calculator commands (add, subtract, multiply, divide): 20 Points
-  - Successful plugin architecture integration for dynamic command loading: 20 
-Ensure that the functionality aligns with the requirements and demonstrates the effective use of the command pattern and plugin architecture as outlined in the instructor videos.
+5. **Execute a command:**
+    The program will prompt for user input. For example, to add two numbers:
+    ```
+    Type 'menu' to show menu
+    Type 'exit' to exit 
+    >>> menu
+    Welcome to the Basic Calcualator.
+    Select the operation to be performed
+    Add
+    Subtract
+    Multiply
+    Divide
+    >>> add
+    Enter two space-seperated numbers: 23 2
+    Addition result: 25
+    ```
 
-## Recommended Viewing
+## Running Tests
 
-To complement the project work, the following videos are highly recommended:
+To run the tests for this project:
+Results are stored in the folder **Results** for the main branch and the child branches.
 
-1. [Python Loop Performance](https://www.youtube.com/watch?v=Qgevy75co8c) - Insights into loop efficiency.
-2. [Habits of The Good Programmer](https://www.youtube.com/watch?v=q1qKv5TBaOA&t=2s) - Design patterns and best practices.
-3. [Global Interpreter Lock and Multicore Issues in Python](https://www.youtube.com/watch?v=m4zDBk0zAUY) - Python concurrency explained by its inventor.
-4. [Design Patterns Explained](https://www.youtube.com/watch?v=tv-_1er1mWI) - General programming design patterns.
-5. [5 Patterns in Python](https://www.youtube.com/watch?v=YMAwgRwjEOQ) - Applying patterns in Python.
-
-## Project Setup
-
-1. Clone the repository.
-2. CD into the project folder.
-3. Create and activate the virtual environment (VE).
-4. Install the required libraries.
-
-## Testing Commands
-
-- Run all tests with `pytest`.
-- To test a specific file, use `pytest tests/test_main.py`.
-- For linting and coverage, `pytest --pylint --cov` commands can be used separately.
-
-## Installed Libraries
-
-1. [Pytest](https://docs.pytest.org/en/8.0.x/)
-2. [Faker](https://faker.readthedocs.io/en/master/)
-3. [Pytest Coverage](https://pytest-cov.readthedocs.io/en/latest/readme.html)
-4. [Pytest Pylint](https://pylint.readthedocs.io/en/stable/development_guide/contributor_guide/tests/launching_test.html)
-
-## Adding a Library
-
-1. Ensure you're in the correct VE; if unsure, run "deactivate".
-2. Activate the VE.
-3. Update the requirements file with `pip freeze > requirements.txt`.
-
+```bash
+pytest 
+pytest --pylint
+pytest --pylint --cov
+```
