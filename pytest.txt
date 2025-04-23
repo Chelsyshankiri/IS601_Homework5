@@ -16,4 +16,4 @@ tests/test_commands.py::test_divide_command PASSED                       [ 75%]
 tests/test_commands.py::test_dividebyzero_command PASSED                 [ 87%]
 tests/test_commands.py::test_app_menu_command PASSED                     [100%]
 
-============================== 8 passed in 0.04s ===============================
+============================== 8 passed in 0.05s ===============================

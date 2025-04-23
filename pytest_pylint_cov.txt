@@ -25,20 +25,21 @@ tests/test_commands.py::test_dividebyzero_command PASSED                 [ 91%]
 tests/test_commands.py::test_app_menu_command PASSED                     [100%]
 
 ---------- coverage: platform linux, python 3.12.3-final-0 -----------
-Name                                Stmts   Miss  Cover
--------------------------------------------------------
-app/__init__.py                        20      0   100%
-app/commands/__init__.py               13      0   100%
-app/commands/add/__init__.py            7      0   100%
-app/commands/divide/__init__.py        10      0   100%
-app/commands/exit/__init__.py           5      0   100%
-app/commands/menu/__init__.py           5      0   100%
-app/commands/multiply/__init__.py       7      0   100%
-app/commands/subtract/__init__.py       7      0   100%
-tests/test_app.py                      17      0   100%
-tests/test_commands.py                 43      0   100%
--------------------------------------------------------
-TOTAL                                 134      0   100%
+Name                               Stmts   Miss  Cover
+------------------------------------------------------
+app/__init__.py                       25      0   100%
+app/commands/__init__.py              13      0   100%
+app/plugins/__init__.py                0      0   100%
+app/plugins/add/__init__.py            7      0   100%
+app/plugins/divide/__init__.py        10      0   100%
+app/plugins/exit/__init__.py           5      0   100%
+app/plugins/menu/__init__.py           5      0   100%
+app/plugins/multiply/__init__.py       7      0   100%
+app/plugins/subtract/__init__.py       7      0   100%
+tests/test_app.py                     17      0   100%
+tests/test_commands.py                43      0   100%
+------------------------------------------------------
+TOTAL                                139      0   100%
 
 
-========================= 8 passed, 4 skipped in 0.59s =========================
+========================= 8 passed, 4 skipped in 0.57s =========================
