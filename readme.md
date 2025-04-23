@@ -1,46 +1,50 @@
-# Homework5 - Command System
+# Plugins Architecture - Homework5
 
-This repository contains a Python project that implements a plugin-based command system for handling user inputs and performing various operations. The goal of this project is to demonstrate the use of classes, functions, and plugins to handle multiple commands dynamically.
+This repository implements a plugin-based command handling system in Python. The project demonstrates how to dynamically load and execute commands through a plugin system.
 
-## Branch: `commands`
+## Branches
 
-This branch includes the implementation of the command system where different commands can be executed based on user input.
+- **master**: The main branch with all the core functionality.
+- **commands**: A branch focused on implementing different command classes.
+- **plugins**: The current branch where the plugin system for command handling is implemented.
 
 ## Features
 
-- **AddCommand**: Adds two numbers provided by the user.
-- **Command Plugin System**: Dynamically load and execute commands.
-- **Extensibility**: Easy to add new commands by extending the existing plugin system.
+- **Command Classes**: The project supports various command classes, such as `AddCommand`, which takes user input and returns the addition of two numbers.
+- **Plugin System**: The plugin system dynamically loads and handles commands, allowing for easy extension and customization without modifying the core logic.
+- **Testing**: Includes parameterized test cases to validate the functionality of command classes.
 
-## Files
+## Installation
 
-- **`main.py`**: The main entry point of the application where commands are processed.
-- **`commands/`**: Contains the individual command classes that handle specific operations (e.g., AddCommand).
-- **`test_main.py`**: Contains unit tests for the command system to ensure correctness.
+1. Clone the repository:
 
-## How to Run
-
-1. **Clone the repository:**
     ```bash
     git clone https://github.com/Chelsyshankiri/IS601_Homework5.git
     ```
 
-2. **Navigate to the project directory:**
+2. Navigate to the project directory:
+
     ```bash
     cd Homework5
     ```
 
-3. **Switch to the `commands` branch:**
+3. Checkout the `plugins` branch to access the latest plugin system implementation:
+
     ```bash
-    git checkout commands
+    git checkout plugins
     ```
 
-4. **Run the main Python file:**
+4. Install any dependencies (if applicable).
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+
+5. **Run the main Python file:**
     ```bash
     python main.py
     ```
 
-5. **Execute a command:**
+6. **Execute a command:**
     The program will prompt for user input. For example, to add two numbers:
     ```
     Type 'menu' to show menu
