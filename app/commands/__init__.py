@@ -14,6 +14,7 @@ class CommandHandler:
 
     def execute_command(self, command_name: str):
         try:
+            command_name = command_name.lower()
             self.commands[command_name].execute()
         except KeyError:
             print(f"No such command: {command_name}")
