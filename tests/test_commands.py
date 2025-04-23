@@ -71,5 +71,11 @@ def test_app_menu_command(capfd, monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     app = App()
     with pytest.raises(SystemExit) as e:
-        app.start()  # Assuming App.start() is now a static method based on previous discussions
-    assert str(e.value) == "Exiting...", "The app did not exit as expected"
+        app.start()
+    assert e.value.code == 0, "The app did not exit cleanly with code 0"
+    out, err = capfd.readouterr()
+    assert "Select the operation to be performed" in out
+    assert "Add" in out
+    assert "Subtract" in out
+    assert "Multiply" in out
+    assert "Divide" in out
